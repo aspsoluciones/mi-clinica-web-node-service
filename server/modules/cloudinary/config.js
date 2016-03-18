@@ -3,8 +3,8 @@
  */
 exports.configuration = {
     cloudinaryConf : {
-        apiKey : '381228771352367',
-        apiSecret : 'qp3Z3dVxuSQWIR2TmY_ica-jYio',
-        cloudName: 'ceiboit'
+        api_key : '381228771352367',
+        api_secret : 'qp3Z3dVxuSQWIR2TmY_ica-jYio',
+        cloud_name: 'ceiboit'
     }
 };
