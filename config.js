@@ -10,13 +10,19 @@ const criteria = {
 
 const config = {
     $meta: 'This file configures the plot device.',
-    projectName: 'amasing-service',
+    projectName: 'mi-clinica-web-node-service',
     port: {
         api: {
             $filter: 'env',
             test: 9090,
             $default: 8080
         }
+    },
+
+    firebase: {
+        $filter: 'env',
+        FB_NAME: 'miclinicaweb',
+        FB_HOST: 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft'
     }
 };
 

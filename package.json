@@ -1,7 +1,7 @@
 {
-  "name": "amasing-service",
+  "name": "mi-clinica-web-node-service",
   "version": "1.0.0",
-  "description": "Amasing server for handle multimedia and queries",
+  "description": "Server de utilidades para mi clinica web",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -29,7 +29,12 @@
     "hapi": "12.x.x",
     "hoek": "3.x.x",
     "lodash": "^4.6.1",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "elastic.js": "~1.1.1",
+    "colors": "~0.6.2",
+    "JQDeferred": "~1.9.1",
+    "firebase": "~2.2.9",
+    "elasticsearchclient": "~0.5.3"
   },
   "devDependencies": {
     "code": "2.x.x",
