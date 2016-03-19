@@ -26,6 +26,11 @@ const config = {
             "$filter": 'env',
             "$default": 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft',
             testing: 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft'
+        },
+        BONSAI_URL : {
+            "$filter" : 'env',
+            "$default" : 'https://j4scjsgnhz:ausg7wee4e@miclinicaweb-6638039142.ap-southeast-2.bonsai.io',
+            "DEV" : 'https://j4scjsgnhz:ausg7wee4e@miclinicaweb-6638039142.ap-southeast-2.bonsai.io'
         }
     },
     good: {

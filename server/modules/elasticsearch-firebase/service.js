@@ -19,7 +19,7 @@ var esc = new ElasticClient({
         password: conf.ES_PASS
     } : null
 });
-console.log('Connected to ElasticSearch host %s:%s'.grey, conf.ES_HOST, conf.ES_PORT);
+console.log('Connected to ElasticSearch host %s:%s'.blue, conf.ES_HOST, conf.ES_PORT);
 
 fbutil.auth(conf.FB_URL, conf.FB_TOKEN).done(function() {
     PathMonitor.process(esc, conf.FB_URL, conf.paths, conf.FB_PATH);
