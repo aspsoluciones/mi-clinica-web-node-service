@@ -18,12 +18,45 @@ const config = {
             $default: 8080
         }
     },
-
     firebase: {
-        $filter: 'env',
-        FB_NAME: 'miclinicaweb',
-        FB_HOST: 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft'
+        "FB_NAME": {
+            "$filter": 'env',
+            testing: "miclinicawebtesting",
+            $default: 'miclinicaweb'
+        },
+        "FB_TOKEN": {
+            "$filter": 'env',
+            "$default": 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft',
+            testing: 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft'
+        }
+    },
+    good: {
+        opsInterval: 1000,
+        filter:{
+            access_token: 'censor'
+        },
+        reporters: [{
+            reporter: require('good-console'),
+            events: { log: '*', response: '*' }
+        }, {
+            reporter: require('good-file'),
+            events: { ops: '*' },
+            config: './test/fixtures/awesome_log'
+        }, {
+            reporter: 'good-http',
+            events: { error: '*' },
+            config: {
+                endpoint: 'http://prod.logs:3000',
+                wreck: {
+                    headers: { 'x-api-key' : 12345 }
+                }
+            }
+        }]
     }
+    ,
+
+
+
 };
 
 

@@ -3,7 +3,6 @@
 const Confidence = require('confidence');
 const Config = require('./config');
 
-
 const criteria = {
     env: process.env.NODE_ENV
 };
@@ -25,6 +24,7 @@ const manifest = {
         port: Config.get('/port/api'),
         labels: ['api']
     }],
+
     registrations: [
         {
             plugin: './server/api/index'
