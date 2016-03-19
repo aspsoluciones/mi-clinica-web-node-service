@@ -89,18 +89,21 @@ const config = {
         DEV: {
             'elasticsearch-firease': 'elasticsearch-firebase/service',
             'algolia-firebase': 'algolia-firebase/service',
+            'jobs' : 'jobs/service',
             'cloudinary': 'cloudinary/service',
         },
 
         PROD: {
             'elasticsearch-firease': 'elasticsearch-firebase/service',
             'algolia-firebase': 'algolia-firebase/service',
+            'jobs' : 'jobs/service',
             'cloudinary': 'cloudinary/service',
         },
 
         $default: {
             'elasticsearch-firease': 'elasticsearch-firebase/service',
             'algolia-firebase': 'algolia-firebase/service',
+            'jobs' : 'jobs/service',
             'cloudinary': 'cloudinary/service',
         }
     }
