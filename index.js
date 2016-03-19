@@ -2,6 +2,7 @@
 
 const Glue = require('glue');
 const Manifest = require('./manifest');
+const EnviromentConfigurations = require('./environment.configuration');
 
 const composeOptions = {
     relativeTo: __dirname

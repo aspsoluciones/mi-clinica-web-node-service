@@ -1,8 +1,6 @@
 'use strict';
 
 const Confidence = require('confidence');
-
-
 const criteria = {
     env: process.env.NODE_ENV
 };
@@ -31,29 +29,76 @@ const config = {
         }
     },
     good: {
-        opsInterval: 1000,
-        filter:{
-            access_token: 'censor'
-        },
-        reporters: [{
-            reporter: require('good-console'),
-            events: { log: '*', response: '*' }
-        }, {
-            reporter: require('good-file'),
-            events: { ops: '*' },
-            config: './test/fixtures/awesome_log'
-        }, {
-            reporter: 'good-http',
-            events: { error: '*' },
-            config: {
-                endpoint: 'http://prod.logs:3000',
-                wreck: {
-                    headers: { 'x-api-key' : 12345 }
+        $filter: 'env',
+        development: {
+            opsInterval: 1000,
+            filter:{
+                access_token: 'censor'
+            },
+            reporters: [{
+                reporter: require('good-console'),
+                events: { log: '*', response: '*' }
+            }, {
+                reporter: require('good-file'),
+                events: { ops: '*' },
+                config: './test/fixtures/awesome_log'
+            }, {
+                reporter: 'good-http',
+                events: { error: '*' },
+                config: {
+                    endpoint: 'http://prod.logs:3000',
+                    wreck: {
+                        headers: { 'x-api-key' : 12345 }
+                    }
                 }
-            }
-        }]
+            }]
+        },
+
+        $default: {
+            opsInterval: 1000,
+            filter:{
+                access_token: 'censor'
+            },
+            reporters: [{
+                reporter: require('good-console'),
+                events: { log: '*', response: '*' }
+            }, {
+                reporter: require('good-file'),
+                events: { ops: '*' },
+                config: './test/fixtures/awesome_log'
+            }, {
+                reporter: 'good-http',
+                events: { error: '*' },
+                config: {
+                    endpoint: 'http://prod.logs:3000',
+                    wreck: {
+                        headers: { 'x-api-key' : 12345 }
+                    }
+                }
+            }]
+        }
+    },
+
+    applicationModules:  {
+        $filter: 'env',
+        DEV: {
+            'elasticsearch-firease': 'elasticsearch-firebase/service',
+            'algolia-firebase': 'algolia-firebase/service',
+            'cloudinary': 'cloudinary/service',
+        },
+
+        PROD: {
+            'elasticsearch-firease': 'elasticsearch-firebase/service',
+            'algolia-firebase': 'algolia-firebase/service',
+            'cloudinary': 'cloudinary/service',
+        },
+
+        $default: {
+            'elasticsearch-firease': 'elasticsearch-firebase/service',
+            'algolia-firebase': 'algolia-firebase/service',
+            'cloudinary': 'cloudinary/service',
+        }
     }
-    ,
 
 
 

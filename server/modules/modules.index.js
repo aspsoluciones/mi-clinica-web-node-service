@@ -1,13 +1,12 @@
 /**
  * Created by epotignano on 19/03/16.
  */
-var retrieveApplicationModules = function() {
+var Config = require('../../config');
+exports.requireApplicationModules= function() {
     /** We can add and delete modules for each particular case as we want! **/
-    if(process.env.NODE_ENV = 'development') {
-        require('./elasticsearch-firebase/service');
-    } else {
-        require('./elasticsearch-firebase/service');
-    }
+    var _modules = Config.get('/applicationModules');
+    var _modulesKey = Object.keys(_modules);
+    _modulesKey.map(function(key) {
+        require('./' + _modules[key])
+    })
 }
-
-retrieveApplicationModules();
