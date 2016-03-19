@@ -8,6 +8,7 @@ var q = require('q');
 var Firebase = require('firebase');
 var FireRef = require('../firebaseConf').firebaseConfig.FirebaseRef;
 var fs = require('fs');
+var btoa = require('btoa');
 
 /** init **/
 cloudinary.config(conf);
@@ -20,9 +21,9 @@ var fileUploadResult = function(err, result) {
 };
 
 exports.upload =function(imageBinary) {
-    var _base64String = new Buffer(imageBinary).toString('base64');
-    var _image = 'data:image/png;base64,' +_base64String;
-    cloudinary.uploader.upload(_image, function(result){
+    var _base64String = btoa(imageBinary);
+    _base64String = 'data:image/png;base64,' + _base64String;
+    cloudinary.uploader.upload(_base64String, function(result){
         console.log('some result is here!')
         console.log(result);
     })

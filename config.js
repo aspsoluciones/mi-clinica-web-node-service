@@ -19,13 +19,13 @@ const config = {
     firebase: {
         "FB_NAME": {
             "$filter": 'env',
-            testing: "miclinicawebtesting",
-            $default: 'miclinicaweb'
+            testing: "mcwdbtesting",
+            $default: 'mcwdb'
         },
         "FB_TOKEN": {
             "$filter": 'env',
-            "$default": 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft',
-            testing: 'pBttZQAEZYukX3PJ9g7nh9CjUAyhcnUdyQ2rLaft'
+            "$default": 'oiyxw5T2heDgipVtH6jw6fXtYhB6Si5QY1DxDgg3',
+            testing: 'oiyxw5T2heDgipVtH6jw6fXtYhB6Si5QY1DxDgg3'
         },
         BONSAI_URL : {
             "$filter" : 'env',
