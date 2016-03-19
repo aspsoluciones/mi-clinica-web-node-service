@@ -20,11 +20,20 @@ var fileUploadResult = function(err, result) {
 
 };
 
-exports.upload =function(imageBinary) {
+exports.upload =function(imageBinary, collection, entityRef, saveinKey) {
+    var _uploadPromise = q.defer();
     var _base64String = btoa(imageBinary);
     _base64String = 'data:image/png;base64,' + _base64String;
     cloudinary.uploader.upload(_base64String, function(result){
-        console.log('some result is here!')
-        console.log(result);
+        if(result.error) {
+
+        }
+
+        var _entityInstance = new Firebase(FireRef + '/' + collection + '/' + entityRef);
+        _entityInstance.set({
+            [saveinKey] : result
+        })
+
     })
+
 };

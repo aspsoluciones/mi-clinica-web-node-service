@@ -15,7 +15,7 @@ function JobsWatcher() {
         var _job = snapshot.val();
         switch(_job.jobType) {
             case(JOB_TYPES.IMAGE_UPLOAD):
-                images.upload(_job.file, _job.collection, _job.entityId)
+                images.upload(_job.file, _job.collection, _job.entityId, _job.saveInKey)
         }
     })
 }
