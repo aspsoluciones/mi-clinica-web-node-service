@@ -31,6 +31,7 @@
     "elastic.js": "~1.1.1",
     "elasticsearchclient": "~0.5.3",
     "firebase": "~2.2.9",
+    "firebase-queue": "^1.2.1",
     "glue": "3.x.x",
     "good": "^6.6.0",
     "good-console": "^5.3.1",
