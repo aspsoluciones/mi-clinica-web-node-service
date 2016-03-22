@@ -40,7 +40,8 @@
     "hapi": "12.x.x",
     "hoek": "3.x.x",
     "lodash": "^4.6.1",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "require-dir": "^0.3.0"
   },
   "devDependencies": {
     "code": "2.x.x",

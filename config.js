@@ -22,6 +22,13 @@ const config = {
             testing: "mcwdbtesting",
             $default: 'mcwdb'
         },
+
+        "FB_URL" : {
+            "$filter": 'env',
+            testing: 'aRandomUrl',
+            $default: 'https://mcwdb.firebaseio.com'
+        },
+
         "FB_TOKEN": {
             "$filter": 'env',
             "$default": 'oiyxw5T2heDgipVtH6jw6fXtYhB6Si5QY1DxDgg3',
@@ -91,6 +98,7 @@ const config = {
             'algolia-firebase': 'algolia-firebase/service',
             'jobs' : 'jobs/service',
             'cloudinary': 'cloudinary/service',
+            'queue': 'queues/service'
         },
 
         PROD: {
@@ -98,6 +106,7 @@ const config = {
             'algolia-firebase': 'algolia-firebase/service',
             'jobs' : 'jobs/service',
             'cloudinary': 'cloudinary/service',
+            'queue': 'queues/service'
         },
 
         $default: {
@@ -105,6 +114,7 @@ const config = {
             'algolia-firebase': 'algolia-firebase/service',
             'jobs' : 'jobs/service',
             'cloudinary': 'cloudinary/service',
+            'queue': 'queues/service'
         }
     }
 
