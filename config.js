@@ -16,6 +16,20 @@ const config = {
             $default: 8080
         }
     },
+
+    cloudinary: {
+        $filter: 'env',
+        production: {
+            api_key : '381228771352367',
+            api_secret : 'qp3Z3dVxuSQWIR2TmY_ica-jYio',
+            cloud_name: 'ceiboit'
+        },
+        $default: {
+            api_key : '381228771352367',
+            api_secret : 'qp3Z3dVxuSQWIR2TmY_ica-jYio',
+            cloud_name: 'ceiboit'
+        }
+    },
     firebase: {
         "FB_NAME": {
             "$filter": 'env',

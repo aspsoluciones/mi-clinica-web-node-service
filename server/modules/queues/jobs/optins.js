@@ -1,7 +1,7 @@
 /**
  * Created by epotignano on 21/03/16.
  */
-
+//var sendgrid = require('sendgrid');
 
 module.exports = function(conf, firebaseRef, data, progress, resolve, reject){
     // var emailClient = new mandrill.Mandrill('nsLooJYaZOzKNvOkhZ8eHg');
