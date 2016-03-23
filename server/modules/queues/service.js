@@ -1,20 +1,29 @@
 
 var Queue = require('firebase-queue'),
+    requireDir = require('require-dir'),
     Firebase = require('firebase');
 
 // The location of the Queue - can be any Firebase Location
 var ref = new Firebase('https://' + process.env.FB_NAME + '.firebaseio.com/');
 // Creates the Queue
 var options = {
-    specId: 'task_1',
-    numWorkers: 10
+    specId: 'sanitize_message',
+
 };
+
+var jobs = requireDir('./jobs');
 
 var queueRef = ref.child('queue');
 queueRef.child('specs').set({
-    task_1: {
-        in_progress_state: 'task_1_in_progress',
-        timeout: 10000
+    sanitize_message: {
+        in_progress_state: "sanitize_message_in_progress",
+        finished_state: "sanitize_message_finished"
+    },
+    fanout_message: {
+        start_state: "sanitize_message_finished",
+        in_progress_state: "fanout_message_in_progress",
+        error_state: "fanout_message_failed",
+        retries: 3
     }
 });
 
@@ -22,13 +31,15 @@ queueRef.child('specs').set({
 var taskNumber = 0;
 setInterval(function() {
     queueRef.child('tasks').push({
-        taskNumber: ++taskNumber
+        message: 'Hello Firebase',
+        name: "¨Potignanoさん"
     });
 }, 1000);
 
-var queue = new Queue(queueRef, options, function(data, progress, resolve, reject) {
+var sanitizeQueue = new Queue(queueRef, options, function(data, progress, resolve, reject) {
     // Read and process task data
     console.log(data);
+    console.log(jobs);
 
     // Do some work
     var percentageComplete = 0;
@@ -45,4 +56,12 @@ var queue = new Queue(queueRef, options, function(data, progress, resolve, rejec
     setTimeout(function() {
         resolve();
     }, 5000);
+});
+
+process.on('SIGINT', function() {
+    console.log('Starting queue shutdown');
+    sanitizeQueue.shutdown().then(function() {
+        console.log('Finished queue shutdown');
+        process.exit(0);
+    });
 });
