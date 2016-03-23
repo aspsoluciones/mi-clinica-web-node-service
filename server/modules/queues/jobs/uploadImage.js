@@ -19,6 +19,11 @@ module.exports =  function(data, progress, resolve, reject) {
             _entityInstance.update({
                 [data.saveInKey] : result
             })
+            _entityInstance.child('actions').push({
+                _actionType: 'IMAGE_UPLOAD',
+                _error: !!result.error
+            });
+
             resolve('Image uploaded without problems')
         } else {
             reject('Error uploading image to Cloudinary');

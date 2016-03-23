@@ -11,9 +11,7 @@ var queueOptions = {
     'numWorkers': 10,
 };
 
-
 var jobs = requireDir('./jobs');
-
 var queueRef = ref.child('queue');
 
 var queue = new Queue(queueRef, queueOptions, function(data, progress, resolve, reject) {

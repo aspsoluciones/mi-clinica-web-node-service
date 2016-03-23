@@ -1,0 +1,18 @@
+// Aplication Types
+
+type User {
+  username: String,
+  role: String
+}
+
+// Security Rules
+
+path / {
+  read() = true;
+  write() = true;
+}
+
+path /users/$userId is User {
+  write() = true
+}
+
